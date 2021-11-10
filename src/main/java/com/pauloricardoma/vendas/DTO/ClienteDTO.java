@@ -20,6 +20,9 @@ public class ClienteDTO {
 		this.dn = dn;
 	}
 
+  public ClienteDTO() {
+	}
+
 	public int getId() {
 		return id;
 	}

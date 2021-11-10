@@ -7,19 +7,26 @@ import com.pauloricardoma.vendas.entities.Compras;
 public class ComprasDTO {
   
   private int id;
-  private Double total_compra;
-  private LocalDate data_compra;
-  
-  public ComprasDTO(int id, Double total_compra, LocalDate data_compra) {
-    this.id = id;
-    this.total_compra = total_compra;
-    this.data_compra = data_compra;
-  }
+  private Double totalCompra;
+  private LocalDate dataCompra;
 
+  private ClienteDTO cliente;
+  
   public ComprasDTO(Compras entidade) {
     this.id = entidade.getId();
-    this.total_compra = entidade.getTotal_compra();
-    this.data_compra = entidade.getData_compra();
+    this.totalCompra = entidade.gettotalCompra();
+    this.dataCompra = entidade.getdataCompra();
+    this.cliente = new ClienteDTO(entidade.getCliente());
+  }
+
+  public ComprasDTO(int id, Double totalCompra, LocalDate dataCompra, ClienteDTO cliente) {
+    this.id = id;
+    this.totalCompra = totalCompra;
+    this.dataCompra = dataCompra;
+    this.cliente = cliente;
+  }
+
+  public ComprasDTO() {
   }
 
   public int getId() {
@@ -28,17 +35,23 @@ public class ComprasDTO {
   public void setId(int id) {
     this.id = id;
   }
-  public Double getTotal_compra() {
-    return total_compra;
+  public Double gettotalCompra() {
+    return totalCompra;
   }
-  public void setTotal_compra(Double total_compra) {
-    this.total_compra = total_compra;
+  public void settotalCompra(Double totalCompra) {
+    this.totalCompra = totalCompra;
   }
-  public LocalDate getData_compra() {
-    return data_compra;
+  public LocalDate getdataCompra() {
+    return dataCompra;
   }
-  public void setData_compra(LocalDate data_compra) {
-    this.data_compra = data_compra;
+  public void setdataCompra(LocalDate dataCompra) {
+    this.dataCompra = dataCompra;
   }
-
+  public ClienteDTO getCliente() {
+    return cliente;
+  }
+  public void setCliente(ClienteDTO cliente) {
+    this.cliente = cliente;
+  }
+  
 }

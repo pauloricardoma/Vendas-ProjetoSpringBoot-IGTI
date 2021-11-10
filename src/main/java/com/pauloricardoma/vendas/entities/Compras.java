@@ -17,20 +17,25 @@ public class Compras {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY) // incremento
   private int id;
-  private Double total_compra;
-  private LocalDate data_compra;
+  private Double totalCompra;
+  private LocalDate dataCompra;
 
   @ManyToOne
   @JoinColumn(name = "cliente_id") // chave estrangeira
   private Cliente cliente; // relacionadas a um cliente
 
-  public Compras(int id, Double total_compra, LocalDate data_compra) {
+  public Compras(int id, Double totalCompra, LocalDate dataCompra, Cliente cliente) {
     this.id = id;
-    this.total_compra = total_compra;
-    this.data_compra = data_compra;
+    this.totalCompra = totalCompra;
+    this.dataCompra = dataCompra;
+    this.cliente = cliente;
   }
   
   public Compras() {
+  }
+
+  public Compras(int id) {
+
   }
 
   public int getId() {
@@ -39,17 +44,23 @@ public class Compras {
   public void setId(int id) {
     this.id = id;
   }
-  public Double getTotal_compra() {
-    return total_compra;
+  public Double gettotalCompra() {
+    return totalCompra;
   }
-  public void setTotal_compra(Double total_compra) {
-    this.total_compra = total_compra;
+  public void settotalCompra(Double totalCompra) {
+    this.totalCompra = totalCompra;
   }
-  public LocalDate getData_compra() {
-    return data_compra;
+  public LocalDate getdataCompra() {
+    return dataCompra;
   }
-  public void setData_compra(LocalDate data_compra) {
-    this.data_compra = data_compra;
+  public void setdataCompra(LocalDate dataCompra) {
+    this.dataCompra = dataCompra;
   }
-
+  public Cliente getCliente() {
+    return cliente;
+  }
+  public void setCliente(Cliente cliente) {
+    this.cliente = cliente;
+  }
+  
 }
